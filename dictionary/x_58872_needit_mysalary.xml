@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="MySalary" max_length="40" name="x_58872_needit_mysalary" type="collection">
+        <element label="Id" mandatory="true" max_length="10" name="id" type="integer"/>
+        <element label="Salary" max_length="10" name="salary" type="integer"/>
+    </element>
+</database>

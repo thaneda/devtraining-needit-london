@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="MyDataTable" max_length="40" name="x_58872_needit_mydatatable" type="collection">
+        <element label="Age" mandatory="true" max_length="10" name="age" type="integer"/>
+        <element label="Description" max_length="1000" name="description" type="string"/>
+        <element choice="1" label="Hobby" max_length="40" name="hobby" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Tennis" sequence="1" value="1"/>
+                <element inactive_on_update="false" label="Golf" sequence="2" value="2"/>
+                <element inactive_on_update="false" label="Soccer" sequence="3" value="3"/>
+            </choice>
+        </element>
+        <element label="Id" mandatory="true" max_length="10" name="id" type="integer"/>
+        <element label="Name" mandatory="true" max_length="10" name="name" type="string"/>
+        <element label="Remarks" max_length="1000" name="remarks" type="string"/>
+    </element>
+</database>

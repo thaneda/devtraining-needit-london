@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="MyAggregateTable" max_length="40" name="x_58872_needit_myaggregatetable" type="collection">
+        <element label="Result" max_length="1000" name="result" type="string"/>
+        <element label="Title" max_length="10" name="title" type="string"/>
+    </element>
+</database>

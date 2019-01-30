@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="result" label="Result" language="en" table="x_58872_needit_myaggregatetable">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>result</element>
+            <help/>
+            <hint/>
+            <label>Result</label>
+            <language>en</language>
+            <name>x_58872_needit_myaggregatetable</name>
+            <plural>Results</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-01-28 05:26:43</sys_created_on>
+            <sys_id>12338cdd4f932300ca928fe18110c739</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Result</sys_name>
+            <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+            <sys_update_name>sys_documentation_x_58872_needit_myaggregatetable_result_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-01-28 05:26:43</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
