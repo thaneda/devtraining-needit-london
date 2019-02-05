@@ -18,7 +18,7 @@
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>search1</name>
+        <name>search2</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -29,35 +29,24 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 	var message = '';
-	
-    // データ検索（JOINは難しいとのことなので個別に該当レコードを検索する方向にしてみる）
-	var grD = new GlideRecord('x_58872_needit_mydatatable');
-	grD.orderBy('id');
-	grD.query();
-	
-	if (grD.hasNext()) {
-		message = message + 'データの存在を確認。\n';
-	}
-	
-	var count = 0;
-	while (grD.next()) {
-		var info = '';
-		if (count != 0) {
-			info = '\n';
-		}
-		info = info + '#' + grD.getValue('id') + '\t'; // Id
-		info = info + grD.getElement('name').getLabel() + ':\[' + grD.getValue('name') + '\], ';   // 名前
-		info = info + grD.getElement('age').getLabel() +':\[' + grD.getValue('age') + '\], ';     // 年齢
-		info = info + grD.getElement('description').getLabel() + ':\[' + grD.getValue('description') + '\], '; // 説明
-		info = info + grD.getElement('remarks').getLabel() + ':\[' + grD.getValue('remarks') + '\], '; // 備考
-		
-		// 給料情報をIDで検索する
-		var salary = getSalary(grD.getValue('id'));
-		info = info + salary.getLabel() + ':\[' + salary + '\]'; // 給料
 
-		message = message + info;
+	// ユーザー：グループ検索
+    var grM = new GlideRecord('sys_user_grmember');
+    var grU = grM.addJoinQuery('sys_user', 'user', 'sys_id');
+    var grG = grM.addJoinQuery('sys_user_group', 'group', 'sys_id');
+
+    grU.addCondition('active', 'true');
+    grG.addCondition('active', 'true');
+    grM.query();
+
+	var count = 0;
+    while (grM.next()) {
+		if (count != 0) {
+			message = message + '\n';
+		}
+        message = message + grM.user.name + ':' + grM.group.name;
 		count++;
-	}
+    }
 
 	// Result 更新
 	gr = new GlideRecord('x_58872_needit_myaggregatetable');
@@ -67,34 +56,24 @@
 		gr.result = message;
 		gr.update();
 	}
-})(current, previous);
-
-// 給料情報取得
-function getSalary(id) {
-	// 給料情報をIDで検索する
-	var grS = new GlideRecord('x_58872_needit_mysalary');
-	grS.addQuery('id', id);
-	grS.query();
-	grS.next();
-	return grS.getElement('salary'); // 給料
-}]]></script>
+})(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2019-01-28 05:51:36</sys_created_on>
+        <sys_created_on>2019-02-05 00:52:19</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>a86884d14fd32300ca928fe18110c79e</sys_id>
-        <sys_mod_count>137</sys_mod_count>
-        <sys_name>search1</sys_name>
+        <sys_id>9511d4734fd72700ca928fe18110c7f1</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>search2</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
-        <sys_update_name>sys_script_a86884d14fd32300ca928fe18110c79e</sys_update_name>
+        <sys_update_name>sys_script_9511d4734fd72700ca928fe18110c7f1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-02-05 01:00:16</sys_updated_on>
+        <sys_updated_on>2019-02-05 01:40:45</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=a86884d14fd32300ca928fe18110c79e"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=9511d4734fd72700ca928fe18110c7f1"/>
 </record_update>

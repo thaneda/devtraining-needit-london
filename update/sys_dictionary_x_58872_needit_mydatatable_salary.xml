@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="result" table="x_58872_needit_myaggregatetable">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="salary" table="x_58872_needit_mydatatable">
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
@@ -14,7 +14,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Result</column_label>
+        <column_label>Salary</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -27,20 +27,20 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>result</element>
+        <element>salary</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="String">string</internal_type>
+        <internal_type display_value="Reference">reference</internal_type>
         <mandatory>false</mandatory>
-        <max_length>1000</max_length>
-        <name>x_58872_needit_myaggregatetable</name>
+        <max_length>32</max_length>
+        <name>x_58872_needit_mydatatable</name>
         <next_element/>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
-        <reference/>
+        <reference display_value="" name="x_58872_needit_mysalary">x_58872_needit_mysalary</reference>
         <reference_cascade_rule/>
         <reference_floats>false</reference_floats>
         <reference_key/>
@@ -52,16 +52,16 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2019-01-28 05:26:43</sys_created_on>
-        <sys_id>12664c7b4f972700ca928fe18110c750</sys_id>
+        <sys_created_on>2019-02-05 02:56:00</sys_created_on>
+        <sys_id>c45decf34f1b2700ca928fe18110c766</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Result</sys_name>
+        <sys_name>Salary</sys_name>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
-        <sys_update_name>sys_dictionary_x_58872_needit_myaggregatetable_result</sys_update_name>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2019-02-05 00:05:29</sys_updated_on>
+        <sys_update_name>sys_dictionary_x_58872_needit_mydatatable_salary</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-02-05 02:56:00</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

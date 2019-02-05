@@ -12,5 +12,9 @@
         <element label="Id" mandatory="true" max_length="10" name="id" type="integer"/>
         <element label="Name" mandatory="true" max_length="10" name="name" type="string"/>
         <element label="Remarks" max_length="1000" name="remarks" type="string"/>
+        <element label="Salary" max_length="32" name="salary" reference="x_58872_needit_mysalary" type="reference"/>
+        <index name="index">
+            <element name="salary"/>
+        </index>
     </element>
 </database>

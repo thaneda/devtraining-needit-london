@@ -6,7 +6,7 @@
         <action_insert>true</action_insert>
         <action_query>false</action_query>
         <action_update>true</action_update>
-        <active>false</active>
+        <active>true</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
         <change_fields>false</change_fields>
@@ -18,7 +18,7 @@
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>search1</name>
+        <name>search3</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -32,12 +32,10 @@
 	
     // データ検索（JOINは難しいとのことなので個別に該当レコードを検索する方向にしてみる）
 	var grD = new GlideRecord('x_58872_needit_mydatatable');
+	var grS = grD.addJoinQuery('x_58872_needit_mysalary', 'salary', 'sys_id');
+//	grS.addCondition('salary', '>=', '400');
 	grD.orderBy('id');
 	grD.query();
-	
-	if (grD.hasNext()) {
-		message = message + 'データの存在を確認。\n';
-	}
 	
 	var count = 0;
 	while (grD.next()) {
@@ -52,8 +50,8 @@
 		info = info + grD.getElement('remarks').getLabel() + ':\[' + grD.getValue('remarks') + '\], '; // 備考
 		
 		// 給料情報をIDで検索する
-		var salary = getSalary(grD.getValue('id'));
-		info = info + salary.getLabel() + ':\[' + salary + '\]'; // 給料
+		info = info + grD.getElement('salary').getLabel() + ':\['
+			+ grD.getElement('salary').salary + '\]'; // 給料
 
 		message = message + info;
 		count++;
@@ -67,34 +65,24 @@
 		gr.result = message;
 		gr.update();
 	}
-})(current, previous);
-
-// 給料情報取得
-function getSalary(id) {
-	// 給料情報をIDで検索する
-	var grS = new GlideRecord('x_58872_needit_mysalary');
-	grS.addQuery('id', id);
-	grS.query();
-	grS.next();
-	return grS.getElement('salary'); // 給料
-}]]></script>
+})(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2019-01-28 05:51:36</sys_created_on>
+        <sys_created_on>2019-02-05 00:59:49</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>a86884d14fd32300ca928fe18110c79e</sys_id>
-        <sys_mod_count>137</sys_mod_count>
-        <sys_name>search1</sys_name>
+        <sys_id>89c298b34fd72700ca928fe18110c728</sys_id>
+        <sys_mod_count>38</sys_mod_count>
+        <sys_name>search3</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
-        <sys_update_name>sys_script_a86884d14fd32300ca928fe18110c79e</sys_update_name>
+        <sys_update_name>sys_script_89c298b34fd72700ca928fe18110c728</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-02-05 01:00:16</sys_updated_on>
+        <sys_updated_on>2019-02-05 04:01:51</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=a86884d14fd32300ca928fe18110c79e"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=89c298b34fd72700ca928fe18110c728"/>
 </record_update>
